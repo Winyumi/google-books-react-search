@@ -55,10 +55,19 @@ function Search() {
               {books.map(book => {
                 return (
                   <ListItem key={book.id}>
-                    <p><img src={book.image} alt={book.title} /></p>
-                    <p><strong>{book.title}</strong>{book.authors ? " by " + book.authors : ""}</p>
-                    <p>{book.description}</p>
-                    <p><a href={book.link} target="_blank" rel="noopener noreferrer">Details</a></p>
+                    <Row>
+                      <Col size="md-3">
+                        <p><img src={book.image} alt={book.title} style={{maxWidth: "100%", height: "auto"}} /></p>
+                        <p>
+                          <a href={book.link} target="_blank" rel="noopener noreferrer">Details</a><br />
+                          <a href={book.link} target="_blank" rel="noopener noreferrer">Save</a>
+                        </p>
+                      </Col>
+                      <Col>
+                        <p><strong>{book.title}</strong>{book.authors ? " by " + book.authors : ""}</p>
+                        <p>{book.description}</p>
+                      </Col>
+                    </Row>
                   </ListItem>
                 );
               })}
