@@ -14,8 +14,16 @@ export default {
     return axios.delete("/api/books/" + id);
   },
   // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
+  saveBook: async function(bookData) {
+    let exists = await axios.get("/api/books/" + bookData.id);
+    //console.log(bookData);
+    //console.log(exists);
+    if (!exists.data) {
+      await axios.post("/api/books", bookData)
+      return { message: "Book saved." };
+    } else {
+      return { message: "Book already saved." };
+    }
   },
   // Gets all books
   searchBooks: async function(query) {

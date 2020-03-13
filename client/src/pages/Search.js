@@ -12,10 +12,10 @@ function Search() {
   const [formObject, setFormObject] = useState({})
 
   // Save book
-  function saveBook(data) {
-    API.saveBook(data)
-      .then(() =>
-        alert('Book saved.')
+  async function saveBook(data) {
+    await API.saveBook(data)
+      .then(res =>
+        alert(res.message)
       )
       .catch(err => console.log(err));
   };
@@ -59,8 +59,8 @@ function Search() {
                       <Col size="md-3">
                         <p><img src={book.image} alt={book.title} style={{maxWidth: "100%", height: "auto"}} /></p>
                         <p>
-                          <a href={book.link} target="_blank" rel="noopener noreferrer">Details</a><br />
-                          <a href={book.link} target="_blank" rel="noopener noreferrer">Save</a>
+                          <DetailsBtn onClick={() => { window.open(book.link, "_blank") }} />
+                          <SaveBtn onClick={() => { saveBook(book) }} />
                         </p>
                       </Col>
                       <Col>
