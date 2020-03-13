@@ -89,7 +89,7 @@ function Books() {
                           {book.title} by {book.author}
                         </strong>
                       </a>
-                      <DeleteBtn onClick={(e) =>{deleteBook(book._id)}} />
+                      <DeleteBtn onClick={() => { deleteBook(book._id) }} />
                     </ListItem>
                   );
                 })}
