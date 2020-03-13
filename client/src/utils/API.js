@@ -28,6 +28,7 @@ export default {
   // Gets all books
   searchBooks: async function(query) {
     let data = (await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}`)).data.items;
+    //console.log(data);
     let books = [];
     for (let book of data) {
       books.push({
@@ -35,7 +36,7 @@ export default {
         title: book.volumeInfo.title,
         authors: book.volumeInfo.authors,
         description: book.volumeInfo.description,
-        image: book.volumeInfo.imageLinks.thumbnail,
+        image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://books.google.ca/googlebooks/images/no_cover_thumb.gif",
         link: book.volumeInfo.infoLink
       });
     }
