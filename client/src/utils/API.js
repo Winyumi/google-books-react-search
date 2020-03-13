@@ -39,7 +39,7 @@ export default {
         link: book.volumeInfo.infoLink
       });
     }
-    console.log(books);
+    //console.log(books);
     return books;
   },
 };
