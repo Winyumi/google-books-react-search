@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Jumbotron from "../components/Jumbotron";
-import { DetailsBtn, SaveBtn, DeleteBtn } from "../components/Buttons";
+import { DetailsBtn, DeleteBtn } from "../components/Buttons";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
@@ -8,7 +7,6 @@ import { List, ListItem } from "../components/List";
 function Saved() {
   // Setting our component's initial state
   const [books, setBooks] = useState([])
-  const [formObject, setFormObject] = useState({})
 
   // Load all books and store them with setBooks
   useEffect(() => {
