@@ -63,7 +63,7 @@ function Search() {
                         </p>
                       </Col>
                       <Col>
-                        <p><strong>{book.title}</strong>{book.authors ? " by " + book.authors : ""}</p>
+                        <p><strong>{book.title}</strong>{book.authors ? " by " + book.authors.join(", ") : ""}</p>
                         <p>{book.description}</p>
                       </Col>
                     </Row>
